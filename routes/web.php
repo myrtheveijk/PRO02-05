@@ -18,6 +18,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/spots', 'SpotController@index');
+Route::get('/spots/create', 'SpotController@create');
+Route::post('/spots', 'SpotController@store');
 
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-users')->group(function(){
     Route::resource('/users', 'UsersController', ['except' => ['show', 'create', 'store']]);
