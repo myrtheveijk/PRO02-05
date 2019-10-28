@@ -3,15 +3,24 @@
 namespace App\Http\Controllers;
 
 use App\Spot;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Redirect;
 
 class SpotController extends Controller
 {
-    public function index()
+    public function __construct()
+    {
+        $this->middleware('auth');
+        
+    }
+
+    public function index(Spot $spot)
     {
         $spots = Spot::all();
-        return view('spot.index', compact('spots'));
+        $spots = Spot::where('user_id', '=', Auth::id())->get();
+        return view('spot.index', ['spots' => $spots]);
     }
 
     public function create()
@@ -29,14 +38,16 @@ class SpotController extends Controller
             'region' => 'required'
         ]);
 
+        $data['user_id'] = auth()->user()->id;
+
         Spot::create($data);
 
         return redirect('/spots');
     }
 
-    public function show(Spot $spot)
+    public function show(Spot $user)
     {
-        return view('spot.show', compact('spot'));
+        return view('spot.show', compact('user'));
     }
 
     public function edit(Spot $spot)

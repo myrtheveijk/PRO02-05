@@ -9,7 +9,6 @@
                     <h4 class="float-left">Spots</h4> 
                     <a href="/spots/create"><button type="submit" class="btn btn-primary float-right">Add new spot</button></a>
                 </div>
-                
                 <div class="card-body">
                     <table class="table">
                         <thead>

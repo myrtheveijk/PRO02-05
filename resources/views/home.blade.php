@@ -13,8 +13,17 @@
                             {{ session('status') }}
                         </div>
                     @endif
+                    
+                    <div class="content">
+                        <p>
+                            You are logged in!
+                        </p>
 
-                    You are logged in!
+                        <div class="links">
+                            <a href="/spots"><button type="submit" class="btn btn-primary">Overzicht schema spots</button></a>
+                            
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

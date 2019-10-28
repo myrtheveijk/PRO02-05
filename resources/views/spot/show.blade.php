@@ -31,7 +31,7 @@
                                     <form action="/spots/{{ $spot->id}}" method="POST" class="float-left">
                                         @method('DELETE')
                                         @csrf
-                                        <button type="submit" class="btn btn-danger">Delete</button></a>
+                                        <button type="submit" class="btn btn-danger">Delete</button>
                                     </form>
                                 </td>
                             </tr>
