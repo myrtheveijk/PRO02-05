@@ -20,4 +20,30 @@ class ProfileController extends Controller
 
         return view('profile.index', ['profile' => $profile]);
     }
+
+    public function edit()
+    {
+        $userId = Auth::user()->id;
+        $profile = User::findOrFail($userId);
+
+        return view('profile.edit', compact('profile'));
+    }
+
+    public function update()
+    {
+        $userId = Auth::user()->id;
+        $profile = User::findOrFail($userId);
+
+        $profile->update($this->validateData());
+
+        return redirect('/profile');
+    }
+
+    public function validateData()
+    {
+        return request()->validate([
+            'name' => 'required',
+            'email' => 'required',
+        ]);
+    }
 }

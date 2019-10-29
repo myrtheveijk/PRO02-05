@@ -35,6 +35,6 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:mana
 
 Route::prefix('/profile')->group(function(){
     Route::get('/', 'ProfileController@index')->name('profile.show');
-    //Route::get('/edit', 'ProfileController@edit')->name('profile.edit');
-    //Route::get('/', 'ProfileController@update')->name('profile.update');
+    Route::get('/edit', 'ProfileController@edit')->name('profile.edit');
+    Route::patch('/', 'ProfileController@update')->name('profile.update');
 });
