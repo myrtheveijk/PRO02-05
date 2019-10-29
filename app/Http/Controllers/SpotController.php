@@ -16,7 +16,7 @@ class SpotController extends Controller
         
     }
 
-    public function index(Spot $spot)
+    public function index(Spot $spots)
     {
         $spots = Spot::all();
         $spots = Spot::where('user_id', '=', Auth::id())->get();
@@ -45,9 +45,11 @@ class SpotController extends Controller
         return redirect('/spots');
     }
 
-    public function show(Spot $user)
+    public function show(Spot $spot)
     {
-        return view('spot.show', compact('user'));
+        //return view('spot.show', compact('user'));
+        $spots = Spot::where('user_id', '=', Auth::id())->get();
+        return view('spot.show', compact('spot'));
     }
 
     public function edit(Spot $spot)
