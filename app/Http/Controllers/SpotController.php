@@ -18,8 +18,15 @@ class SpotController extends Controller
 
     public function index(Spot $spots)
     {
-        $spots = Spot::all();
-        $spots = Spot::where('user_id', '=', Auth::id())->get();
+        $spots;
+        $user = Auth::user();
+
+        if ($user->roles()->first()->name == 'admin') {
+            $spots = Spot::all();
+        } else {
+            $spots = $user->spots();
+        }
+
         return view('spot.index', ['spots' => $spots]);
     }
 

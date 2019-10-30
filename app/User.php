@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password'
+        'name', 'email', 'password', 'role_id'
     ];
 
     /**
@@ -62,6 +62,6 @@ class User extends Authenticatable
 
     public function spots()
     {
-        return $this->hasMany(Spot::class)->orderBy('created_at', 'DESC');
+        return $this->hasMany(Spot::class)->orderBy('created_at', 'DESC')->get();
     }
 }
