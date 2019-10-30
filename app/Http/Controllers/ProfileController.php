@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Gate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -21,12 +22,14 @@ class ProfileController extends Controller
         return view('profile.index', ['profile' => $profile]);
     }
 
-    public function edit()
+    public function edit(User $user)
     {
         $userId = Auth::user()->id;
         $profile = User::findOrFail($userId);
 
-        return view('profile.edit', compact('profile'));
+        if(Gate::denies('edit-users')){
+            return view('profile.edit', compact('profile'));
+        }
     }
 
     public function update()

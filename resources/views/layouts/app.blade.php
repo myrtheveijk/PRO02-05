@@ -61,9 +61,11 @@
                                     </a>
                                     @endcan
                                     
+                                    @can('edit-profile')
                                     <a class="dropdown-item" href="{{ url('/profile') }}">
                                         Edit profile
                                     </a>
+                                    @endcan
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

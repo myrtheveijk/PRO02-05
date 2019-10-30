@@ -6,7 +6,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="float-left">Details van: {{ $profile->name }}</h4> 
+                    <h4 class="float-left">Edit profile: {{ $profile->name }}</h4> 
                     <a href="/"><button type="submit" class="btn btn-primary float-right">< Back to homepage</button></a>
                 </div>
 
