@@ -49,6 +49,19 @@
                                 @enderror
                             </div>
                         </div>
+
+                        <div class="form-group row">
+                            <label for="image" class="col-md-2 col-form-label text-md-right">Image</label>
+                            <div class="col-md-6">
+                                <input id="image" type="file" class="form-control-file @error('image') is-invalid @enderror" name="image" value="{{ $spot->image }}"/>
+
+                                @error('image')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
                         @csrf
                         <button type="submit" class="btn btn-primary">Save changes</button>
                     </form>

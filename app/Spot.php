@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Spot extends Model
 {
-    protected $fillable = ['name', 'location', 'region', 'user_id'];
+    protected $fillable = ['name', 'location', 'region', 'image', 'user_id'];
 
     public function user()
     {

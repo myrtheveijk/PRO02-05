@@ -42,7 +42,8 @@ class SpotController extends Controller
         $data = request()->validate([
             'name' => 'required', 
             'location' => 'required', 
-            'region' => 'required'
+            'region' => 'required',
+            'image' => ['required', 'image']
         ]);
 
         $data['user_id'] = auth()->user()->id;
@@ -69,6 +70,7 @@ class SpotController extends Controller
         $spot->name = $request->input('name');
         $spot->location = $request->input('location');
         $spot->region = $request->input('region');
+        $spot->image = $request->input('image');
         $spot->save();
 
         return Redirect::to('spots');

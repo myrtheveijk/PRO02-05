@@ -17,6 +17,7 @@
                                 <th scope="col">Name</th>
                                 <th scope="col">Location</th>
                                 <th scope="col">Region</th>
+                                <th scope="col">Image</th>
                                 <th scope="col">Actions</th>
                             </tr>
                         </thead>
@@ -25,6 +26,7 @@
                                 <td>{{ $spot->name }}</td>
                                 <td>{{ $spot->location }}</td>
                                 <td>{{ $spot->region }}</td>
+                                <td>{{ $spot->image }}</td>
                                 <td>
                                     <a href="{{ route('spot.edit', $spot->id) }}"><button type="button" class="btn btn-primary float-left">Edit</button></a>
 
