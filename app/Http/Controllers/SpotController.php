@@ -39,16 +39,24 @@ class SpotController extends Controller
 
     public function store()
     {
-        $data = request()->validate([
+        $validatedData = request()->validate([
             'name' => 'required', 
             'location' => 'required', 
             'region' => 'required',
-            'image' => ['required', 'image']
+            'image' => ['required', 'image'],
         ]);
 
-        $data['user_id'] = auth()->user()->id;
+        $imagePath = request('image')->store('uploads', 'public');
+        //$data['user_id'] = auth()->user()->id;
 
-        Spot::create($data);
+        //Spot::create($data);
+        Spot::create([
+            'name' => $validatedData['name'],
+            'location' => $validatedData['location'],
+            'region' => $validatedData['region'],
+            'user_id' => Auth::user()->id,
+            'image' => $imagePath
+        ]);
 
         return redirect('/spots');
     }

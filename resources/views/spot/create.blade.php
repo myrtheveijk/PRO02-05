@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">Add new spot</div>
 
@@ -26,7 +26,7 @@
                             <label for="location" class="col-md-2 col-form-label text-md-right">Location</label>
                             <div class="col-md-6">
                                 <input id="location" type="text" class="form-control" name="location" required/>
-                            
+
                                 @error('location')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

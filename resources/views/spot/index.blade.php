@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
                     <h4 class="float-left">Spots</h4> 
@@ -28,7 +28,7 @@
                                 <td>{{ $spot->name }}</td>
                                 <td>{{ $spot->location }}</td>
                                 <td>{{ $spot->region }}</td>
-                                <td>{{ $spot->image }}</td>
+                                <td><img src="/storage/{{ $spot->image }}" class="w-50"></td>
                                 <td>
                                     <a href="{{ route('spot.show', $spot->id) }}"><button type="button" class="btn btn-primary float-left">Show</button></a>
                                 </td>

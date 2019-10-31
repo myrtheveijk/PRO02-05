@@ -88,7 +88,21 @@
                     <a href="/spots">Overzicht schema spots</a>
                     <a href="/">HotSpots</a>
                 </div>
+
+                <div>
+                    @forelse ($spots as $spot)
+                        <img src="/storage/{{ $spot->image }}" style="width:100px;" />
+                        <h4>{{ $spot->name }}</h4>
+                        <p>{{ $spot->location}}</p>
+                        <p>{{ $spot->region}}</p>
+
+                        @empty
+                        <p>No spots to show, jammer bitch!</p>
+                    @endforelse
+                </div>
             </div>
+
+
         </div>
     </body>
 </html>
