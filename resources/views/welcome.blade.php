@@ -100,6 +100,15 @@
                     <a href="/spots">Overzicht schema spots</a>
                     <a href="/">HotSpots</a>
                 </div>
+                
+                Filter:
+                <a href="/?region=central">Central</a>|
+                <a href="/?region=zuid">Rotterdam Zuid</a>|
+                <a href="/?region=noord">Rotterdam Noord</a>|
+                <a href="/?region=blijdorp">Blijdorp</a>|
+                <a href="/?region=feyenoord">Feyenoord</a>
+
+                <a href="/">Reset</a>
 
                 <div>
                     @forelse ($spots as $spot)
