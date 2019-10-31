@@ -15,6 +15,7 @@ Auth::routes();
 
 Route::get('/', 'WelcomeController@index')->name('welcome');
 Route::get('/home', 'HomeController@index')->name('home');
+Route::any('/search', 'SearchController@index');
 
 Route::prefix('/spots')->group(function(){
     Route::get('/', 'SpotController@index')->name('spots');
