@@ -38,7 +38,14 @@
                         <div class="form-group row">
                             <label for="region" class="col-md-2 col-form-label text-md-right">Region</label>
                             <div class="col-md-6">
-                                <input id="region" type="text" class="form-control" name="region" required/>
+                                <select id="region" name="region" class="form-control" required>
+                                    <option selected>Select...</option>
+                                    <option>Central</option>
+                                    <option>Rotterdam Zuid</option>
+                                    <option>Rotterdam Noord</option>
+                                    <option>Blijdorp</option>
+                                    <option>Feyenoord</option>
+                                </select>
                             
                                 @error('region')
                                     <span class="invalid-feedback" role="alert">
