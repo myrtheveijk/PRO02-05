@@ -4,12 +4,22 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <!-- CSRF Token -->
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+
+        <title>{{ config('app.name', 'rofkof') }}</title>
+
+        <!-- Scripts -->
+        <script src="{{ asset('js/app.js') }}" defer></script>
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link rel="dns-prefetch" href="//fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Eczar:700&display=swap" rel="stylesheet">
 
         <!-- Styles -->
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
         <style>
             html, body {
                 background-color: #fff;
@@ -41,11 +51,60 @@
             }
 
             .content {
+                position: absolute;
+                top: 20%;
                 text-align: center;
             }
 
             .title {
                 font-size: 84px;
+                color: #8F390A;
+                font-family: 'Eczar', serif;
+            }
+
+            h5 {
+                font-size: 20px;
+                color: #C37B28;
+                font-family: 'Eczar', serif;
+            }
+
+            .btn-rofkof {
+                color: #8F390A;
+                background: #E4A78B;
+            }
+
+            #filter, #filter-btn, #search {
+                color: #C37B28;
+                padding: 0 5px 15px 0;
+                float: left;
+                margin-left: 10px;
+            }
+
+            #filter-btn > a {
+                color: #8F390A;
+            }
+
+            .pagination {
+                margin: 25%
+            }
+
+            .page-link{
+                color: #636b6f;
+            }
+            
+            .page-item.active .page-link {
+                background: #8F390A;
+                border-color: #8F390A;
+            }
+
+            .card {
+                margin: 26px;
+            }
+
+            #links-rofkof {
+                margin: 0 0 40px 0;
+                padding: 30px;
+                background: #F8F7F3;
             }
 
             .links > a {
@@ -78,52 +137,68 @@
                     @endauth
                 </div>
             @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    DELICIOUS COFFEE
-                </div>
-
-                <form action="/search" method="POST" role="search">
-                    @csrf
-                    <div class="input-group">
-                        <input type="text" class="form-control" name="search" autocomplete="off"
-                            placeholder="Search spots"> <span class="input-group-btn">
-                            <button type="submit" class="btn btn-default">
-                                <span class="glyphicon glyphicon-search"></span>
-                            </button>
-                        </span>
+            <div class="container">
+                <div class="content">
+                    <div class="title m-b-md">
+                        Rofkof
                     </div>
-                </form>
 
-                <div class="links">
-                    <a href="/spots">Overzicht schema spots</a>
-                    <a href="/">HotSpots</a>
-                </div>
-                
-                Filter:
-                <a href="/?region=central">Central</a>|
-                <a href="/?region=zuid">Rotterdam Zuid</a>|
-                <a href="/?region=noord">Rotterdam Noord</a>|
-                <a href="/?region=blijdorp">Blijdorp</a>|
-                <a href="/?region=feyenoord">Feyenoord</a>
+                    <div  id="links-rofkof" class="links">
+                        <a href="/">Show all spots</a>
+                        <a href="/spots/create">Create spot</a>
+                        <a href="/spots">Your spot list</a>
+                    </div>
 
-                <a href="/">Reset</a>
 
-                <div>
-                    @forelse ($spots as $spot)
-                        <img src="/storage/{{ $spot->image }}" style="width:100px;" />
-                        <h4>{{ $spot->name }}</h4>
-                        <p>{{ $spot->location}}</p>
-                        <p>{{ $spot->region}}</p>
+                    <div class="container">
+                        <div id="search" class="row col-md-12">
+                            <form action="/search" method="POST" role="search">
+                                @csrf
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="search" autocomplete="off" placeholder="Search spots"> <span class="input-group-btn">
+                                        <button type="submit" class="btn btn-default">
+                                            <span class="glyphicon glyphicon-search"></span>
+                                        </button>
+                                    </span>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h5 id="filter">Filter:</h5>
+                                <div id="filter-btn">
+                                    <a href="/?region=central">Central</a> |
+                                    <a href="/?region=rotterdam-zuid">Rotterdam-Zuid</a> |
+                                    <a href="/?region=rotterdam-noord">Rotterdam-Noord</a> |
+                                    <a href="/?region=blijdorp">Blijdorp</a> |
+                                    <a href="/?region=feyenoord">Feyenoord</a> |
+                                    <a href="/">Reset</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            @forelse ($spots as $spot)
+                                <div class="card" style="width: 20rem;">
+                                    <img class="card-img-top" src="/storage/{{ $spot->image }}" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ $spot->name }}</h5>
+                                        <p class="card-text">Location: {{ $spot->location }} <br> Region: {{ $spot->region }}</p>
+                                        <!-- Toevoegen van een website van de coffee shop -->
+                                        <a href="{{ $spot->website }}" class="btn btn-rofkof"><strong>Bezoek website</strong></a>
+                                    </div>
+                                </div>
+                                @empty
+                                <div class="card-body">
+                                    <h5 class="card-title">No spots to show!</h5>
+                                </div>
+                            </div>
+                            @endforelse
 
-                        @empty
-                        <p>No spots to show, jammer bitch!</p>
-                    @endforelse
-                </div>
+                             {{ $spots->links() }}
+                        </div>
+                    </div>
+                </div> 
             </div>
-
-
         </div>
     </body>
 </html>

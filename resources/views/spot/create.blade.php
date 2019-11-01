@@ -41,8 +41,8 @@
                                 <select id="region" name="region" class="form-control" required>
                                     <option selected>Select...</option>
                                     <option>Central</option>
-                                    <option>Rotterdam Zuid</option>
-                                    <option>Rotterdam Noord</option>
+                                    <option>Rotterdam-Zuid</option>
+                                    <option>Rotterdam-Noord</option>
                                     <option>Blijdorp</option>
                                     <option>Feyenoord</option>
                                 </select>
