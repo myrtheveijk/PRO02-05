@@ -3,7 +3,6 @@
 @section('content')
 <div class="container">
     <a href="/"> < Back</a>
-
     
     @if(isset($details))
         <h2>Search result for {{ $query }} is :</h2>

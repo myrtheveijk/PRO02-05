@@ -37,13 +37,19 @@ class SpotController extends Controller
         return view('spot.create', compact('spot'));
     }
 
-    public function store()
+    public function store(Request $request)
     {
+        $toggleValue = 0;
+        if($request->input('visible') == 'on'){
+            $toggleValue = 1;
+        }
+
         $validatedData = request()->validate([
             'name' => 'required', 
             'location' => 'required', 
             'region' => 'required',
             'image' => ['required', 'image'],
+            'website' => 'required'
         ]);
 
         $imagePath = request('image')->store('uploads', 'public');
@@ -54,8 +60,10 @@ class SpotController extends Controller
             'name' => $validatedData['name'],
             'location' => $validatedData['location'],
             'region' => $validatedData['region'],
+            'image' => $imagePath,
+            'website' => $validatedData['website'],
+            'visible' => $toggleValue,
             'user_id' => Auth::user()->id,
-            'image' => $imagePath
         ]);
 
         return redirect('/spots');
@@ -79,6 +87,8 @@ class SpotController extends Controller
         $spot->location = $request->input('location');
         $spot->region = $request->input('region');
         $spot->image = $request->input('image');
+        $spot->website = $request->input('website');
+        $spot->visible = $request->input('visible');
         $spot->save();
 
         return Redirect::to('spots');

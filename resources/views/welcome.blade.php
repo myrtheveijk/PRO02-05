@@ -50,9 +50,14 @@
                 top: 18px;
             }
 
-            .content {
+            .container {
                 position: absolute;
-                top: 20%;
+                top: 180px;
+            }
+
+            .content {
+                margin:  0;
+                overflow: scroll;
                 text-align: center;
             }
 
@@ -150,7 +155,7 @@
                     </div>
 
 
-                    <div class="container">
+                    <div class="content">
                         <div id="search" class="row col-md-12">
                             <form action="/search" method="POST" role="search">
                                 @csrf

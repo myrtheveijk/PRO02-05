@@ -19,6 +19,8 @@ class CreateSpotsTable extends Migration
             $table->string('location');
             $table->string('region');
             $table->string('image')->nullable();
+            $table->string('website')->nullable();
+            $table->tinyInteger('visible')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->index('user_id');
             $table->timestamps();

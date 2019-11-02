@@ -60,7 +60,8 @@
                         <div class="form-group row">
                             <label for="image" class="col-md-2 col-form-label text-md-right">Image</label>
                             <div class="col-md-6">
-                                <input id="image" type="file" class="form-control-file @error('image') is-invalid @enderror" name="image" value="{{ $spot->image }}"/>
+                                <input id="image" type="file" class="form-control-file @error('image') is-invalid @enderror" name="image" value="/storage/{{ $spot->image }}"/>
+                                <img class="w-50 mt-1" src='/storage/{{ $spot->image }}'>
 
                                 @error('image')
                                     <span class="invalid-feedback" role="alert">
@@ -69,6 +70,25 @@
                                 @enderror
                             </div>
                         </div>
+
+                        <div class="form-group row">
+                            <label for="website" class="col-md-2 col-form-label text-md-right">Website</label>
+                            <div class="col-md-6">
+                                <input id="website" type="text" class="form-control @error('website') is-invalid @enderror" name="website" value="{{ $spot->website }}" required/>
+
+                                @error('website')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input" name="visible" id="customSwitch1">
+                            <label class="custom-control-label" for="customSwitch1">Toggle this switch element</label>
+                        </div>
+
                         @csrf
                         <button type="submit" class="btn btn-primary">Save changes</button>
                     </form>

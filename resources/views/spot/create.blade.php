@@ -67,8 +67,27 @@
                                 @enderror
                             </div>
                         </div>
+
+                        <div class="form-group row">
+                            <label for="website" class="col-md-2 col-form-label text-md-right">Website</label>
+                            <div class="col-md-6">
+                                <input id="website" type="text" class="form-control" name="website" required/>
+
+                                @error('website')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="custom-control custom-switch ml-1">
+                            <input type="checkbox" class="custom-control-input" name="visible" id="customSwitch1">
+                            <label class="custom-control-label" for="customSwitch1">Toggle this switch element</label>
+                        </div>
+                        
                         @csrf
-                        <button type="submit" class="btn btn-primary">Add new spot</button>
+                        <button type="submit" class="btn btn-primary mt-2">Add new spot</button>
                     </form>
                 </div>
             </div>

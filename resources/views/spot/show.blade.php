@@ -18,6 +18,8 @@
                                 <th scope="col">Location</th>
                                 <th scope="col">Region</th>
                                 <th scope="col">Image</th>
+                                <th scope="col">Website</th>
+                                <th scope="col">Visibility</th>
                                 <th scope="col">Actions</th>
                             </tr>
                         </thead>
@@ -26,7 +28,9 @@
                                 <td>{{ $spot->name }}</td>
                                 <td>{{ $spot->location }}</td>
                                 <td>{{ $spot->region }}</td>
-                                <td>{{ $spot->image }}</td>
+                                <td><img src="/storage/{{ $spot->image }}" class="w-50"></td>
+                                <td>{{ $spot->website }}</td>
+                                <td>{{ $spot->visible == 1 ? 'Ja' : 'Nee' }}</td>
                                 <td>
                                     <a href="{{ route('spot.edit', $spot->id) }}"><button type="button" class="btn btn-primary float-left">Edit</button></a>
 
