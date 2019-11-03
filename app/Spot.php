@@ -9,7 +9,7 @@ class Spot extends Model
     protected $table = 'spots';
 
     // Hier een nieuw veld toevoegen zodra het opgeslagen moet worden in de DB.
-    protected $fillable = ['name', 'location', 'region', 'image', 'website', 'visible'];
+    protected $fillable = ['name', 'location', 'region', 'image', 'website', 'visible', 'user_id'];
 
     public function user()
     {

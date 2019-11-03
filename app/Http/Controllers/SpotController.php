@@ -18,6 +18,8 @@ class SpotController extends Controller
 
     public function index(Spot $spots)
     {
+        $spots = spot::with('user')->get();
+
         $spots;
         $user = Auth::user();
 
@@ -27,7 +29,8 @@ class SpotController extends Controller
             $spots = $user->spots();
         }
 
-        return view('spot.index', ['spots' => $spots]);
+        //return view('spot.index', ['spots' => $spots]);
+        return view('spot.index', compact('spots'));
     }
 
     public function create()
@@ -55,6 +58,8 @@ class SpotController extends Controller
         $imagePath = request('image')->store('uploads', 'public');
         //$data['user_id'] = auth()->user()->id;
 
+        $user_id = (Auth::user()->id);
+
         //Spot::create($data);
         Spot::create([
             'name' => $validatedData['name'],
@@ -63,7 +68,7 @@ class SpotController extends Controller
             'image' => $imagePath,
             'website' => $validatedData['website'],
             'visible' => $toggleValue,
-            'user_id' => Auth::user()->id,
+            'user_id' => $user_id
         ]);
 
         return redirect('/spots');

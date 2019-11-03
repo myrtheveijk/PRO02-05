@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Gate;
-use Illuminate\Http\Request;
+use Request;
 use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
@@ -34,12 +34,27 @@ class ProfileController extends Controller
 
     public function update()
     {
-        $userId = Auth::user()->id;
-        $profile = User::findOrFail($userId);
+        $user_id = Request::input('user_id');
+        $user = User::find($user_id);
 
-        $profile->update($this->validateData());
+        if($user_id == null) {
+            $user = Auth::user();
+        }
 
-        return redirect('/profile');
+        //Preventing Breaking Access Controll 
+        $authenticated_user = Auth::user();
+        if ($authenticated_user->id != $user->id) {
+            return 'Unauthorised';
+        }
+
+        if ($user) {
+            $user->update($this->validateData());
+
+            return redirect('/profile');
+        }
+        else {
+            return 'no user found';
+        }
     }
 
     public function validateData()

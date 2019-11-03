@@ -30,7 +30,7 @@
                                 <td>{{ $spot->region }}</td>
                                 <td><img src="/storage/{{ $spot->image }}" class="w-50"></td>
                                 <td>{{ $spot->website }}</td>
-                                <td>{{ $spot->visible == 1 ? 'Ja' : 'Nee' }}</td>
+                                <td>{{ $spot->visible == 1 ? 'True' : 'False' }}</td>
                                 <td>
                                     <a href="{{ route('spot.edit', $spot->id) }}"><button type="button" class="btn btn-primary float-left">Edit</button></a>
 
