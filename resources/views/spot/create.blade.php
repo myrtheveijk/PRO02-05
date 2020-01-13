@@ -12,7 +12,7 @@
                         <div class="form-group row">
                             <label for="name" class="col-md-2 col-form-label text-md-right">Name</label>
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" required/>
+                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') ?? $spot->name }}" required/>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -25,7 +25,7 @@
                         <div class="form-group row">
                             <label for="location" class="col-md-2 col-form-label text-md-right">Location</label>
                             <div class="col-md-6">
-                                <input id="location" type="text" class="form-control" name="location" required/>
+                                <input id="location" type="text" class="form-control" name="location" value="{{ old('location') ?? $spot->location }}" required/>
 
                                 @error('location')
                                     <span class="invalid-feedback" role="alert">
@@ -39,7 +39,7 @@
                             <label for="region" class="col-md-2 col-form-label text-md-right">Region</label>
                             <div class="col-md-6">
                                 <select id="region" name="region" class="form-control" required>
-                                    <option selected>Select...</option>
+                                    <option value="" selected>Select...</option>
                                     <option>Central</option>
                                     <option>Rotterdam-Zuid</option>
                                     <option>Rotterdam-Noord</option>
@@ -71,7 +71,7 @@
                         <div class="form-group row">
                             <label for="website" class="col-md-2 col-form-label text-md-right">Website</label>
                             <div class="col-md-6">
-                                <input id="website" type="text" class="form-control" name="website" required/>
+                                <input id="website" type="text" class="form-control" name="website" value="{{ old('website') ?? $spot->website }}" required/>
 
                                 @error('website')
                                     <span class="invalid-feedback" role="alert">
@@ -83,7 +83,7 @@
 
                         <div class="custom-control custom-switch ml-1">
                             <input type="checkbox" class="custom-control-input" name="visible" id="customSwitch1">
-                            <label class="custom-control-label" for="customSwitch1">Toggle this switch element</label>
+                            <label class="custom-control-label" for="customSwitch1">Publish Post?</label>
                         </div>
                         
                         @csrf

@@ -46,7 +46,7 @@ class SpotController extends Controller
         if($request->input('visible') == 'on'){
             $toggleValue = 1;
         }
-
+    
         $validatedData = request()->validate([
             'name' => 'required', 
             'location' => 'required', 
@@ -62,7 +62,7 @@ class SpotController extends Controller
 
         //Spot::create($data);
         Spot::create([
-            'name' => $validatedData['name'],
+            'name' => $request->name,
             'location' => $validatedData['location'],
             'region' => $validatedData['region'],
             'image' => $imagePath,
