@@ -81,10 +81,10 @@
                             </div>
                         </div>
 
-                        <div class="custom-control custom-switch ml-1">
+                        {{-- <div class="custom-control custom-switch ml-1">
                             <input type="checkbox" class="custom-control-input" name="visible" id="customSwitch1">
                             <label class="custom-control-label" for="customSwitch1">Publish Post?</label>
-                        </div>
+                        </div> --}}
                         
                         @csrf
                         <button type="submit" class="btn btn-primary mt-2">Add new spot</button>

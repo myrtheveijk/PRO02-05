@@ -32,7 +32,15 @@
                                 <td>{{ $spot->region }}</td>
                                 <td><img src="/storage/{{ $spot->image }}" class="w-50"></td>
                                 <td>{{ $spot->website }}</td>
-                                <td>{{ $spot->visible == 1 ? 'True' : 'False' }}</td>
+                                <td> 
+                                    <form action="/spots" enctype="multipart/form-data" method="POST">
+                                        <div class="custom-control custom-switch ml-1">
+                                            <input type="checkbox" class="custom-control-input" name="visible" id="customSwitch1">
+                                            <label class="custom-control-label" for="customSwitch1"></label>
+                                        </div>                                        
+                                    </form>
+                                </td>
+                                {{-- <td>{{ $spot->visible == 1 ? 'True' : 'False' }}</td> --}}
                                 <td>
                                     <a href="{{ route('spot.show', $spot->id) }}"><button type="button" class="btn btn-primary float-left">Show</button></a>
                                 </td>

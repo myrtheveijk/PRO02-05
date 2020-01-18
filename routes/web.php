@@ -21,6 +21,7 @@ Route::prefix('/spots')->group(function(){
     Route::get('/', 'SpotController@index')->name('spots');
     Route::get('/create', 'SpotController@create')->name('spot.create');
     Route::post('/', 'SpotController@store')->name('spot.store');
+    Route::post('/toggle', 'SportController@toggle')->name('spot.toggle');
     Route::get('/{spot}', 'SpotController@show')->name('spot.show');
     Route::get('/{spot}/edit', 'SpotController@edit')->name('spot.edit');
     Route::post('/{spot}/update', 'SpotController@update')->name('spot.update');

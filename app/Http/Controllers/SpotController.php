@@ -74,6 +74,10 @@ class SpotController extends Controller
         return redirect('/spots');
     }
 
+    public function toggle() {
+        
+    }
+
     public function show(Spot $spot)
     {
         //return view('spot.show', compact('user'));
