@@ -12,9 +12,9 @@
                         @method('post')
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-2 col-form-label text-md-right">Name</label>
+                            <label for="name" class="col-md-2 col-form-label text-md-right">Name*</label>
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $spot->name }}" required/>
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $spot->name }}"/>
                                 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -25,9 +25,9 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="location" class="col-md-2 col-form-label text-md-right">Location</label>
+                            <label for="location" class="col-md-2 col-form-label text-md-right">Location*</label>
                             <div class="col-md-6">
-                                <input id="location" type="text" class="form-control @error('location') is-invalid @enderror" name="location" value="{{ $spot->location }}" required/>
+                                <input id="location" type="text" class="form-control @error('location') is-invalid @enderror" name="location" value="{{ $spot->location }}"/>
 
                                 @error('location')
                                     <span class="invalid-feedback" role="alert">
@@ -38,9 +38,9 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="region" class="col-md-2 col-form-label text-md-right">Region</label>
+                            <label for="region" class="col-md-2 col-form-label text-md-right">Region*</label>
                             <div class="col-md-6">
-                                <select id="region" name="region" class="form-control" required>
+                                <select id="region" name="region" class="form-control">
                                     <option selected>{{ $spot->region }}</option>
                                     <option>Central</option>
                                     <option>Rotterdam-Zuid</option>
@@ -58,7 +58,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="image" class="col-md-2 col-form-label text-md-right">Image</label>
+                            <label for="image" class="col-md-2 col-form-label text-md-right">Image*</label>
                             <div class="col-md-6">
                                 <input id="image" type="file" class="form-control-file @error('image') is-invalid @enderror" name="image" value="/storage/{{ $spot->image }}"/>
                                 <img class="w-50 mt-1" src='/storage/{{ $spot->image }}'>
@@ -72,9 +72,9 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="website" class="col-md-2 col-form-label text-md-right">Website</label>
+                            <label for="website" class="col-md-2 col-form-label text-md-right">Website*</label>
                             <div class="col-md-6">
-                                <input id="website" type="text" class="form-control @error('website') is-invalid @enderror" name="website" value="{{ $spot->website }}" required/>
+                                <input id="website" type="text" class="form-control @error('website') is-invalid @enderror" name="website" value="{{ $spot->website }}"/>
 
                                 @error('website')
                                     <span class="invalid-feedback" role="alert">

@@ -10,9 +10,9 @@
                 <div class="card-body">
                     <form action="/spots" enctype="multipart/form-data" method="POST">
                         <div class="form-group row">
-                            <label for="name" class="col-md-2 col-form-label text-md-right">Name</label>
+                            <label for="name" class="col-md-2 col-form-label text-md-right">Name*</label>
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') ?? $spot->name }}" required/>
+                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') ?? $spot->name }}" />
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -23,9 +23,9 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="location" class="col-md-2 col-form-label text-md-right">Location</label>
+                            <label for="location" class="col-md-2 col-form-label text-md-right">Location*</label>
                             <div class="col-md-6">
-                                <input id="location" type="text" class="form-control" name="location" value="{{ old('location') ?? $spot->location }}" required/>
+                                <input id="location" type="text" class="form-control" name="location" value="{{ old('location') ?? $spot->location }}" />
 
                                 @error('location')
                                     <span class="invalid-feedback" role="alert">
@@ -36,9 +36,9 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="region" class="col-md-2 col-form-label text-md-right">Region</label>
+                            <label for="region" class="col-md-2 col-form-label text-md-right">Region*</label>
                             <div class="col-md-6">
-                                <select id="region" name="region" class="form-control" required>
+                                <select id="region" name="region" class="form-control" >
                                     <option value="" selected>Select...</option>
                                     <option>Central</option>
                                     <option>Rotterdam-Zuid</option>
@@ -56,7 +56,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="image" class="col-md-2 col-form-label text-md-right">Image</label>
+                            <label for="image" class="col-md-2 col-form-label text-md-right">Image*</label>
                             <div class="col-md-6">
                                 <input id="image" type="file" class="form-control-file" name="image"/>
 
@@ -69,9 +69,9 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="website" class="col-md-2 col-form-label text-md-right">Website</label>
+                            <label for="website" class="col-md-2 col-form-label text-md-right">Website*</label>
                             <div class="col-md-6">
-                                <input id="website" type="text" class="form-control" name="website" value="{{ old('website') ?? $spot->website }}" required/>
+                                <input id="website" type="text" class="form-control" name="website" value="{{ old('website') ?? $spot->website }}" />
 
                                 @error('website')
                                     <span class="invalid-feedback" role="alert">
