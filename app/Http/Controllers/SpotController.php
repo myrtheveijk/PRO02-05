@@ -42,10 +42,10 @@ class SpotController extends Controller
 
     public function store(Request $request)
     {
-        $toggleValue = 0;
-        if($request->input('visible') == 'on'){
-            $toggleValue = 1;
-        }
+        $toggleValue = 1;
+        // if($request->input('visible') == 'on'){
+        //     $toggleValue = 1;
+        // }
     
         $validatedData = request()->validate([
             'name' => 'required', 
